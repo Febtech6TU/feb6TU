@@ -1,0 +1,330 @@
+<div class="gallery">
+    <img src="https://imageio.forbes.com/specials-images/imageserve/61e4fde1134e946cf9b0f30d/0x0.jpg?format=jpg&width=1200">
+    <img src="https://guardian.ng/wp-content/uploads/2020/08/Artificial-intelligence.jpg">
+    <img src="https://cdn.unenvironment.org/2022-11/GettyImages-1329808001.jpg">
+    <img src="https://www.zdnet.com/a/img/resize/1cf8792703072f196016861f7bb595fc90ae1177/2018/06/07/97109f8a-9d4b-4b76-98b6-d6eda94732a2/robotic-surgery.jpg?auto=webp&fit=crop&height=900&width=1200">
+    <img src="https://www.universetoday.com/wp-content/uploads/2013/09/1.13743-C0141244-Black_hole_artwork-SPL-1.jpg" alt="a lonely man :(">
+    <img src="https://icetonline.com/wp-content/uploads/2021/12/wormhole-2514312-1920.jpg">
+</div>
+
+<div class="gallery1">
+    <img src="https://bigthink.com/wp-content/uploads/2021/07/134390-134391.jpg">
+    <img src="https://images.immediate.co.uk/production/volatile/sites/4/2023/04/black-hole-hero-f872641.jpg?quality=90&resize=940,400">
+    <img src="https://scitechdaily.com/images/Black-Hole-Event-Horizon-Artistic-Illustration.jpg">
+    <img src="https://universe.nasa.gov/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBazhEIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--9e81fc898e7b5813c41c9226df08eec4b5a98450/ssc2006-02a_0.jpg">
+    <img src="https://bfcspace.com/wp-content/uploads/2019/10/cometa-interst.jpg">
+    <img src="https://cdn.mos.cms.futurecdn.net/Q4UQ2bWADBXqrRy9H3PcTo.jpg">
+</div>
+
+
+<div class="gallery2">
+    <img src="https://www.thoughtco.com/thmb/dj4nerFEPPv_pE3D-TRLYo_b-a0=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/3-D_DNA-56a09ae45f9b58eba4b20266.jpg">
+    <img src="https://physicsworld.com/wp-content/uploads/2023/02/chain-of-amino-acid-or-protein-biomolecules-1390037416-iStock_Christoph-Burgstedt.jpg">
+    <img src="https://cdn.unenvironment.org/2022-11/GettyImages-1329808001.jpg">
+    <img src="https://www.cell.com/pb-assets/products/pictureshow/beauty-in-biophysics-2021/02-Compete-or-co-exist-1616165110340.jpg">
+    <img src="https://www.kennedy-center.org/globalassets/education/resources-for-educators/classroom-resources/artsedge/lesson/6-8/get-inside-a-cell/getinsideacell.jpg" alt="a lonely man :(">
+    <img src="https://cdn.the-scientist.com/assets/articleNo/70997/aImg/49496/ai-can-create-proteins-folding-article-l.jpg">
+</div>
+
+<div class="gallery3">
+    <img src="https://www.brookings.edu/wp-content/uploads/2017/04/seriesimg_theprojectoncivilianrobotics.jpg?w=1030&h=580&crop=1">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/d/d8/NASA_Mars_Rover.jpg">
+    <img src="https://media.datacenterdynamics.com/media/images/satellite.width-880.jpg">
+    <img src="https://d1otjdv2bf0507.cloudfront.net/images/Article_Images/ImageForArticle_5274(1).jpg">
+    <img src="https://www.universetoday.com/wp-content/uploads/2013/09/1.13743-C0141244-Black_hole_artwork-SPL-1.jpg" alt="a lonely man :(">
+    <img src="https://icetonline.com/wp-content/uploads/2021/12/wormhole-2514312-1920.jpg">
+</div>
+
+<div class="gallery4">
+    <img src="https://imageio.forbes.com/specials-images/imageserve/61e4fde1134e946cf9b0f30d/0x0.jpg?format=jpg&width=1200">
+    <img src="https://guardian.ng/wp-content/uploads/2020/08/Artificial-intelligence.jpg">
+    <img src="https://cdn.unenvironment.org/2022-11/GettyImages-1329808001.jpg">
+    <img src="https://www.zdnet.com/a/img/resize/1cf8792703072f196016861f7bb595fc90ae1177/2018/06/07/97109f8a-9d4b-4b76-98b6-d6eda94732a2/robotic-surgery.jpg?auto=webp&fit=crop&height=900&width=1200">
+    <img src="https://www.universetoday.com/wp-content/uploads/2013/09/1.13743-C0141244-Black_hole_artwork-SPL-1.jpg" alt="a lonely man :(">
+    <img src="https://icetonline.com/wp-content/uploads/2021/12/wormhole-2514312-1920.jpg">
+</div>
+
+
+<style>
+
+
+.gallery {
+  --s: 500px; /* the size */
+  
+  display: grid;
+  transform-style: preserve-3d;
+  --_p: perspective(calc(2.5*var(--s)));
+  animation: r 40s infinite cubic-bezier(.5,-0.5,.5,1.5);
+}
+.gallery img {
+  grid-area: 1/1;
+  width: var(--s);
+  aspect-ratio: 1;
+  object-fit: cover;
+  transform: var(--_t, ) translateZ(calc(var(--s)/2));
+}
+.gallery img:nth-child(2) {--_t: rotateX(-90deg)}
+.gallery img:nth-child(3) {--_t: rotateY( 90deg) rotate(-90deg)}
+.gallery img:nth-child(4) {--_t: rotateX(180deg) rotate( 90deg)}
+.gallery img:nth-child(5) {--_t: rotateX( 90deg) rotate( 90deg)}
+.gallery img:nth-child(6) {--_t: rotateY(-90deg)}
+
+@keyframes r {
+  0%,3%   {transform: var(--_p)}
+  14%,19% {transform: var(--_p) rotateX(90deg)}
+  31%,36% {transform: var(--_p) rotateX(90deg) rotateZ(90deg)}
+  47%,52% {transform: var(--_p) rotateX(90deg) rotateZ(90deg) rotateY(-90deg)}
+  64%,69% {transform: var(--_p) rotateX(90deg) rotateZ(90deg) rotateY(-90deg) rotateX(90deg)}
+  81%,86% {transform: var(--_p) rotateX(90deg) rotateZ(90deg) rotateY(-90deg) rotateX(90deg) rotateZ(90deg)}
+  97%,100%{transform: var(--_p) rotateX(90deg) rotateZ(90deg) rotateY(-90deg) rotateX(90deg) rotateZ(90deg) rotateY(-90deg)}
+}
+
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: grid;
+  place-content: center;
+  background: #556270;
+  animation: b 9s infinite;
+}
+
+@keyframes b {
+  0%,3%   {background: #774F38}
+  14%,19% {background: #C5E0DC}
+  31%,36% {background: #036564}
+  45%,55% {background: #15c6d2}
+  64%,69% {background: #424254}
+  81%,86% {background: #4DBCE9}
+  97%,to  {background: #774F38}
+}
+</style>
+
+
+<style>
+
+
+.gallery1 {
+  --s: 200px; /* the size */
+  position: absolute;
+  top:519px;
+  left:1317px;
+  display: grid;
+  transform-style: preserve-3d;
+  --_p: perspective(calc(2.5*var(--s)));
+  animation: r 15s infinite cubic-bezier(.5,-0.5,.5,1.5);
+}
+.gallery1 img {
+  grid-area: 1/1;
+  width: var(--s);
+  aspect-ratio: 1;
+  object-fit: cover;
+  transform: var(--_t, ) translateZ(calc(var(--s)/2));
+}
+.gallery1 img:nth-child(2) {--_t: rotateX(-90deg)}
+.gallery1 img:nth-child(3) {--_t: rotateY( 90deg) rotate(-90deg)}
+.gallery1 img:nth-child(4) {--_t: rotateX(180deg) rotate( 90deg)}
+.gallery1 img:nth-child(5) {--_t: rotateX( 90deg) rotate( 90deg)}
+.gallery1 img:nth-child(6) {--_t: rotateY(-90deg)}
+
+@keyframes r {
+  0%,3%   {transform: var(--_p)}
+  14%,19% {transform: var(--_p) rotateX(90deg)}
+  31%,36% {transform: var(--_p) rotateX(90deg) rotateZ(90deg)}
+  47%,52% {transform: var(--_p) rotateX(90deg) rotateZ(90deg) rotateY(-90deg)}
+  64%,69% {transform: var(--_p) rotateX(90deg) rotateZ(90deg) rotateY(-90deg) rotateX(90deg)}
+  81%,86% {transform: var(--_p) rotateX(90deg) rotateZ(90deg) rotateY(-90deg) rotateX(90deg) rotateZ(90deg)}
+  97%,100%{transform: var(--_p) rotateX(90deg) rotateZ(90deg) rotateY(-90deg) rotateX(90deg) rotateZ(90deg) rotateY(-90deg)}
+}
+
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: grid;
+  place-content: center;
+  background: #556270;
+  animation: b 9s infinite;
+}
+
+@keyframes b {
+  0%,3%   {background: #774F38}
+  14%,19% {background: #C5E0DC}
+  31%,36% {background: #036564}
+  45%,55% {background: #15c6d2}
+  64%,69% {background: #424254}
+  81%,86% {background: #4DBCE9}
+  97%,to  {background: #774F38}
+}
+</style>
+
+
+<style>
+
+
+.gallery2 {
+  --s: 200px; /* the size */
+  position: absolute;
+  display: grid;
+  left:25px;
+  transform-style: preserve-3d;
+  --_p: perspective(calc(2.5*var(--s)));
+  animation: r 20s infinite cubic-bezier(.5,-0.5,.5,1.5);
+}
+.gallery2 img {
+  grid-area: 1/1;
+  width: var(--s);
+  aspect-ratio: 1;
+  object-fit: cover;
+  transform: var(--_t, ) translateZ(calc(var(--s)/2));
+}
+.gallery2 img:nth-child(2) {--_t: rotateX(-90deg)}
+.gallery2 img:nth-child(3) {--_t: rotateY( 90deg) rotate(-90deg)}
+.gallery2 img:nth-child(4) {--_t: rotateX(180deg) rotate( 90deg)}
+.gallery2 img:nth-child(5) {--_t: rotateX( 90deg) rotate( 90deg)}
+.gallery2 img:nth-child(6) {--_t: rotateY(-90deg)}
+
+@keyframes r {
+  0%,3%   {transform: var(--_p)}
+  14%,19% {transform: var(--_p) rotateX(90deg)}
+  31%,36% {transform: var(--_p) rotateX(90deg) rotateZ(90deg)}
+  47%,52% {transform: var(--_p) rotateX(90deg) rotateZ(90deg) rotateY(-90deg)}
+  64%,69% {transform: var(--_p) rotateX(90deg) rotateZ(90deg) rotateY(-90deg) rotateX(90deg)}
+  81%,86% {transform: var(--_p) rotateX(90deg) rotateZ(90deg) rotateY(-90deg) rotateX(90deg) rotateZ(90deg)}
+  97%,100%{transform: var(--_p) rotateX(90deg) rotateZ(90deg) rotateY(-90deg) rotateX(90deg) rotateZ(90deg) rotateY(-90deg)}
+}
+
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: grid;
+  place-content: center;
+  background: #556270;
+  animation: b 9s infinite;
+}
+
+@keyframes b {
+  0%,3%   {background: #774F38}
+  14%,19% {background: #C5E0DC}
+  31%,36% {background: #036564}
+  45%,55% {background: #15c6d2}
+  64%,69% {background: #424254}
+  81%,86% {background: #4DBCE9}
+  97%,to  {background: #774F38}
+}
+</style>
+
+<style>
+
+
+.gallery3 {
+  --s: 200px; /* the size */
+  position: absolute;
+  top: 519px;
+  left:25px;
+  display: grid;
+  transform-style: preserve-3d;
+  --_p: perspective(calc(2.5*var(--s)));
+  animation: r 25s infinite cubic-bezier(.5,-0.5,.5,1.5);
+}
+.gallery3 img {
+  grid-area: 1/1;
+  width: var(--s);
+  aspect-ratio: 1;
+  object-fit: cover;
+  transform: var(--_t, ) translateZ(calc(var(--s)/2));
+}
+.gallery3 img:nth-child(2) {--_t: rotateX(-90deg)}
+.gallery3 img:nth-child(3) {--_t: rotateY( 90deg) rotate(-90deg)}
+.gallery3 img:nth-child(4) {--_t: rotateX(180deg) rotate( 90deg)}
+.gallery3 img:nth-child(5) {--_t: rotateX( 90deg) rotate( 90deg)}
+.gallery3 img:nth-child(6) {--_t: rotateY(-90deg)}
+
+@keyframes r {
+  0%,3%   {transform: var(--_p)}
+  14%,19% {transform: var(--_p) rotateX(90deg)}
+  31%,36% {transform: var(--_p) rotateX(90deg) rotateZ(90deg)}
+  47%,52% {transform: var(--_p) rotateX(90deg) rotateZ(90deg) rotateY(-90deg)}
+  64%,69% {transform: var(--_p) rotateX(90deg) rotateZ(90deg) rotateY(-90deg) rotateX(90deg)}
+  81%,86% {transform: var(--_p) rotateX(90deg) rotateZ(90deg) rotateY(-90deg) rotateX(90deg) rotateZ(90deg)}
+  97%,100%{transform: var(--_p) rotateX(90deg) rotateZ(90deg) rotateY(-90deg) rotateX(90deg) rotateZ(90deg) rotateY(-90deg)}
+}
+
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: grid;
+  place-content: center;
+  background: #556270;
+  animation: b 9s infinite;
+}
+
+@keyframes b {
+  0%,3%   {background: #774F38}
+  14%,19% {background: #C5E0DC}
+  31%,36% {background: #036564}
+  45%,55% {background: #15c6d2}
+  64%,69% {background: #424254}
+  81%,86% {background: #4DBCE9}
+  97%,to  {background: #774F38}
+}
+</style>
+
+
+<style>
+
+
+.gallery4 {
+  --s: 200px; /* the size */
+  position: absolute;
+  left: 1311px;
+  display: grid;
+  transform-style: preserve-3d;
+  --_p: perspective(calc(2.5*var(--s)));
+  animation: r 30s infinite cubic-bezier(.5,-0.5,.5,1.5);
+}
+.gallery4 img {
+  grid-area: 1/1;
+  width: var(--s);
+  aspect-ratio: 1;
+  object-fit: cover;
+  transform: var(--_t, ) translateZ(calc(var(--s)/2));
+}
+.gallery4 img:nth-child(2) {--_t: rotateX(-90deg)}
+.gallery4 img:nth-child(3) {--_t: rotateY( 90deg) rotate(-90deg)}
+.gallery4 img:nth-child(4) {--_t: rotateX(180deg) rotate( 90deg)}
+.gallery4 img:nth-child(5) {--_t: rotateX( 90deg) rotate( 90deg)}
+.gallery4 img:nth-child(6) {--_t: rotateY(-90deg)}
+
+@keyframes r {
+  0%,3%   {transform: var(--_p)}
+  14%,19% {transform: var(--_p) rotateX(90deg)}
+  31%,36% {transform: var(--_p) rotateX(90deg) rotateZ(90deg)}
+  47%,52% {transform: var(--_p) rotateX(90deg) rotateZ(90deg) rotateY(-90deg)}
+  64%,69% {transform: var(--_p) rotateX(90deg) rotateZ(90deg) rotateY(-90deg) rotateX(90deg)}
+  81%,86% {transform: var(--_p) rotateX(90deg) rotateZ(90deg) rotateY(-90deg) rotateX(90deg) rotateZ(90deg)}
+  97%,100%{transform: var(--_p) rotateX(90deg) rotateZ(90deg) rotateY(-90deg) rotateX(90deg) rotateZ(90deg) rotateY(-90deg)}
+}
+
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: grid;
+  place-content: center;
+  background: #556270;
+  animation: b 9s infinite;
+}
+
+@keyframes b {
+  0%,3%   {background: #774F38}
+  14%,19% {background: #C5E0DC}
+  31%,36% {background: #036564}
+  45%,55% {background: #15c6d2}
+  64%,69% {background: #424254}
+  81%,86% {background: #4DBCE9}
+  97%,to  {background: #774F38}
+}
+</style>
