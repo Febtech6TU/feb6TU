@@ -1,0 +1,188 @@
+<!-- use p5.js and dat gui -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.min.js" integrity="sha512-N4kV7GkNv7QR7RX9YF/olywyIgIwNvfEe2nZtfyj73HdjCUkAfOBDbcuJ/cTaN04JKRnw1YG1wnUyNKMsNgg3g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/dat-gui/0.7.7/dat.gui.min.js" integrity="sha512-LF8ZB1iTwi4Qvkm4pekHG4a437Y9Af5ZuwbnW4GTbAWQeR2E4KW8WF+xH8b9psevV7wIlDMx1MH9YfPqgKhA/Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+<style>/* normalize css */
+
+    body {
+      overflow: hidden;
+      margin: auto;
+    }</style>
+
+<script>
+    var myFont, graph, config = {
+  startVertex: 0,
+  endVertex: 0,
+  verticesNumber: 5,
+  addEdge: () => graph.addEdgeUndirected(config.startVertex, config.endVertex),
+  clearEdges: () => graph.clearEdges(),
+  randomizeVertices: () => graph.randomizeVertices(),
+  randomizeEdges: () => graph.randomizeEdges(),
+  colorize: () => graph.colorize(),
+  newGraph: () => { graph = new Graph(config.verticesNumber) },
+};
+
+window.onload = function() {
+  var gui = new dat.GUI();
+  
+  var folder_1 = gui.addFolder("Добавить_ребро");
+  
+  folder_1.add(config, "startVertex");
+  folder_1.add(config, "endVertex");
+  folder_1.add(config, "addEdge");
+  
+  var folder_2 = gui.addFolder("Новый граф");
+  
+  folder_2.add(config, "verticesNumber").min(1).max(1000).step(1);
+  folder_2.add(config, "newGraph");
+  
+  gui.add(config, "clearEdges");
+  gui.add(config, "randomizeVertices");
+  gui.add(config, "randomizeEdges");
+  gui.add(config, "colorize");
+}
+
+class Graph {
+  constructor(vertexNumber = 0) {
+    this.vertices = Array.from(Array(vertexNumber), () => this.randomVertices());
+    this.adjacencyMatrix = Array.from(Array(vertexNumber), () => Array(vertexNumber));
+  }
+  
+  addEdge(start, end) {
+    this.adjacencyMatrix[start][end] = true;
+  }
+  
+  addEdgeUndirected(start, end) {
+    this.addEdge(start, end);
+    this.addEdge(end, start);
+  }
+  
+  randomCoords(border) {
+    let width = windowWidth - border, height = windowHeight - border;
+    return [Math.random() * width - width / 2, Math.random() * height - height / 2]
+  }
+  
+  randomVertices() {
+    return {
+      coords: this.randomCoords(128),
+      color: [Math.random() * 127 + 128, Math.random() * 127 + 128, Math.random() * 127 + 128],
+    }
+  }
+  
+  randomizeVertices() {
+    for(let vertex of this.vertices)
+      vertex.coords = this.randomCoords(128);
+  }
+  
+  randomizeEdges() {
+    for(let i = 0; i < this.vertices.length; i++)
+      for(let j = 0; j <= this.vertices.length; j++)
+        this.adjacencyMatrix[i][j] = Math.random() > 0.5;
+  }
+  
+  clearEdges() {
+    this.adjacencyMatrix = Array.from(Array(this.vertices.length), () => Array(this.vertices.length));
+  }
+  
+  colorize() {
+    let colors = Array.from(
+      Array(this.vertices.length),
+      () => [Math.random() * 255, Math.random() * 255, Math.random() * 255]
+    );
+    
+    let colorIdx = Array(this.vertices.length).fill(-1);
+    let canUseColor = Array(this.vertices.length).fill(true);
+    
+    colorIdx[0] = 0;
+    
+    let state = {interation: 0, colorIdx: [...colorIdx], canUseColor: [...canUseColor]};
+    console.log(state);
+    for(let i = 1; i < this.vertices.length; i++) {
+      for(let j = 0; j < this.vertices.length; j++)
+        if(this.adjacencyMatrix[i][j] && colorIdx[j] != -1)
+          canUseColor[colorIdx[j]] = false;
+      
+      let firstCanUseColor = 0;
+      for(let j = 0; j < this.vertices.length; j++)
+        if(canUseColor[j]) {
+          firstCanUseColor = j;
+          break;
+        }
+      
+      colorIdx[i] = firstCanUseColor;
+      
+      state = {interation: i, colorIdx: [...colorIdx], canUseColor: [...canUseColor]};
+      console.log(state);
+      for(let j = 0; j < this.vertices.length; j++)
+        canUseColor[j] = true;
+    }
+    
+    for(let i = 0; i < this.vertices.length; i++)
+      this.vertices[i].color = [...colors[colorIdx[i]]];
+  }
+  
+  draw() {
+    strokeWeight(2);
+    stroke(255);
+    beginShape(LINES);
+    for(let i = 0; i < this.vertices.length; i++)
+      for(let j = 0; j <= i; j++)
+        if(this.adjacencyMatrix[i][j]) {
+          let [x_a, y_a] = this.vertices[i].coords;
+          let [x_b, y_b] = this.vertices[j].coords;
+          vertex(x_a, y_a, -1);
+          vertex(x_b, y_b, -1);
+        }
+    endShape();
+ 
+    strokeWeight(32);
+    for(let i = 0; i < this.vertices.length; i++) {
+      let [x, y] = this.vertices[i].coords;
+      let [r, g, b] = this.vertices[i].color;
+      stroke(r, g, b);
+      beginShape(POINTS);
+      vertex(x, y, 0);
+      endShape();
+    }
+ 
+    fill(0);
+    for(let i = 0; i < this.vertices.length; i++) {
+      let [x, y] = this.vertices[i].coords;
+      text(i, x - 6, y + 4);
+    }
+    noFill();
+  }
+}
+
+function preload() {
+  myFont = loadFont('https://raw.githubusercontent.com/chrissimpkins/codeface/master/fonts/cp-mono/CPMono_v07%20Plain.otf');
+}
+
+function setup() {
+  createCanvas(windowWidth, windowHeight, WEBGL);
+  textFont(myFont);
+  textSize(18);
+  frameRate(30);
+
+  graph = new Graph(7);
+  graph.addEdgeUndirected(1, 6);
+  graph.addEdgeUndirected(1, 5);
+  graph.addEdgeUndirected(1, 4);
+  graph.addEdgeUndirected(1, 2);
+  graph.addEdgeUndirected(3, 0);
+  graph.addEdgeUndirected(3, 6);
+  graph.addEdgeUndirected(3, 4);
+  graph.addEdgeUndirected(4, 6);
+  graph.addEdgeUndirected(4, 5);
+  graph.colorize();
+}
+
+function draw() {
+  background(0);
+  graph.draw();
+}
+
+function windowResized() { resizeCanvas(windowWidth, windowHeight); }
+</script>
