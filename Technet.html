@@ -7,9 +7,12 @@
 <style>/* normalize css */
 
     body {
-      overflow: hidden;
+      overflow:auto;
       margin: auto;
-    }</style>
+      background: rgb(2,0,36);
+    }
+
+</style>
 
 <script>
     var myFont, graph, config = {
@@ -166,7 +169,7 @@ function setup() {
   textSize(18);
   frameRate(30);
 
-  graph = new Graph(7);
+  graph = new Graph(10);
   graph.addEdgeUndirected(1, 6);
   graph.addEdgeUndirected(1, 5);
   graph.addEdgeUndirected(1, 4);
@@ -176,13 +179,26 @@ function setup() {
   graph.addEdgeUndirected(3, 4);
   graph.addEdgeUndirected(4, 6);
   graph.addEdgeUndirected(4, 5);
+  graph.addEdgeUndirected(8, 1);
+  graph.addEdgeUndirected(7, 9);
+  graph.addEdgeUndirected(8, 7);
   graph.colorize();
 }
 
+
+
 function draw() {
-  background(0);
+  background(150,50,150);
   graph.draw();
+
 }
 
 function windowResized() { resizeCanvas(windowWidth, windowHeight); }
+
+
+
+
+
 </script>
+
+
